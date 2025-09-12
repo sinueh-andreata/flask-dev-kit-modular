@@ -1,8 +1,8 @@
-# Flask DevKit MVP
+# Flask DevKit Modular
 
-O Flask DevKit versão MVP é um pacote que conta com pouca configuração de ambiente e estrutura de código.
+O Flask DevKit versão Modular é um pacote que conta com arquitetura de código Modular para o desenvolvimento de sistemas web mais robustos.
 
-O objetivo do MVP é ter pré configuração de banco de dados, segurança e rotas/endpoints/APIs que são essenciais em protótipos de sistemas.
+O objetivo do DevKit Modular é ter pré configuração de banco de dados, segurança e rotas/endpoints/APIs que são essenciais em protótipos de sistemas mais robustos.
 
 O pacote também tem funcionalidades adicionais que talvez seja interessante para protótipos.
 
@@ -36,4 +36,3 @@ Em breve!
 ## Documentação
 
 [Em beve](https://link-da-documentação)
-
