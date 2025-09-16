@@ -20,3 +20,21 @@ def validar_cpf(cpf):
     digito2 = calc_digito(cpf[:9] + str(digito1), 11)
 
     return cpf[-2:] == f"{digito1}{digito2}"
+
+def validar_cep(cep):
+    cep = ''.join(filter(str.isdigit, cep))
+
+    if len(cep) != 8:
+        return False
+    
+    if cep == cep[0] * 8:  # Verifica se todos os números são iguais (ex: 11111111)
+        return False
+
+    try: 
+        cep_num = int(cep)
+        if cep_num < 1000000 or cep_num > 99999999:
+            return False
+    except ValueError:
+        return False
+
+    
