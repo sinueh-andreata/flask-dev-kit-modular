@@ -7,6 +7,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function mascaraTelefone(){
     const telefoneInput = document.getElementById('telefone');
+
+    telefoneInput.addEventListener('keypress', function(e) {
+        if (e.key < '0' || e.key > '9') {
+            e.preventDefault();
+            return false;
+        }
+    });
+
     telefoneInput.addEventListener('input', function () {
         let v = this.value;
 
@@ -20,6 +28,14 @@ function mascaraTelefone(){
 
 function mascaraCpf(){
     const cpfInput = document.getElementById('cpf');
+
+    cpfInput.addEventListener('keypress', function(e) {
+        if (e.key < '0' || e.key > '9') {
+            e.preventDefault();
+            return false;
+        }
+    });
+
     cpfInput.addEventListener('input', function () {
         let v = this.value;
 

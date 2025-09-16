@@ -20,6 +20,15 @@ def login_usuarios():
     else:
         return jsonify({'success': False, 'aviso': 'Login ou senha inválidos'}), 401
 
+
+@app.route('/home/usuarios')
+@login_usuario
+def home():
+    if not login_usuario:
+        return jsonify({'aviso': 'Usuário não autenticado'}), 401
+    return render_template('home.html')
+
+
 @app.route('/logout')
 @login_usuario
 def logout_usuario():
