@@ -6,19 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-
-    <form id="loginForm"></form>
-<!-- 
-    <form id="submitForm">
-        <input type="text" id="cpf" maxlength="14">
-        <input type="text" id="cnpj" maxlength="18">
-        <input type="text" id="telefone" maxlength="15">
-        <button type="submit">Enviar</button>
-    </form> -->
-
     <form id="loginForm" method="POST">
-                <input type="text" id="nome" name="nome" maxlength="50" placeholder="Nome" required>
-
+        <input type="text" id="nome" name="nome" maxlength="50" placeholder="Nome" required>
         <input type="password" id="cpf" name="senha" maxlength="14" placeholder="CPF como senha" pattern="[0-9]*" inputmode="numeric" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required>
         <button type="submit">Login</button>
     </form>
