@@ -2,19 +2,13 @@ window.addEventListener('DOMContentLoaded', () => {
     mascaraTelefone();
     mascaraCpf();
     mascaraCnpj();
+    mascaraNome(); // Adicione aqui
+    validarCpf();
+    validarCnpj();
 });
-
 
 function mascaraTelefone(){
     const telefoneInput = document.getElementById('telefone');
-
-    telefoneInput.addEventListener('keypress', function(e) {
-        if (e.key < '0' || e.key > '9') {
-            e.preventDefault();
-            return false;
-        }
-    });
-
     telefoneInput.addEventListener('input', function () {
         let v = this.value;
 
@@ -28,14 +22,6 @@ function mascaraTelefone(){
 
 function mascaraCpf(){
     const cpfInput = document.getElementById('cpf');
-
-    cpfInput.addEventListener('keypress', function(e) {
-        if (e.key < '0' || e.key > '9') {
-            e.preventDefault();
-            return false;
-        }
-    });
-
     cpfInput.addEventListener('input', function () {
         let v = this.value;
 
@@ -60,6 +46,32 @@ function mascaraCnpj(){
         this.value = v;
     })
 }
+
+function mascaraNome() {
+    const nomeInput = document.getElementById('nome');
+    
+    const cleanText = text => text
+        .replace(/[^A-Za-zÀ-ÿ\s]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+    nomeInput.addEventListener('keypress', e => {
+        if (!/^[A-Za-zÀ-ÿ\s]$/.test(e.key)) {
+            e.preventDefault();
+        }
+    });
+
+    nomeInput.addEventListener('input', e => {
+        e.target.value = cleanText(e.target.value);
+    });
+
+    nomeInput.addEventListener('paste', e => {
+        e.preventDefault();
+        const text = (e.clipboardData || window.clipboardData).getData('text');
+        nomeInput.value = cleanText(text);
+    });
+}
+mascaraNome();
 
 function validarCpf(cpf) {
     cpf = cpf.replace(/\D/g, '');
