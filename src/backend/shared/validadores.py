@@ -1,4 +1,4 @@
-from flask import Flask
+import re
 
 def validar_cpf(cpf):
     cpf = ''.join(filter(str.isdigit, cpf))  # Remove tudo que não é número
@@ -37,4 +37,22 @@ def validar_cep(cep):
     except ValueError:
         return False
 
-    
+def validar_telefone(telefone):
+    telefone = ''.join(filter(str.isdigit, telefone))
+
+    if len(telefone) < 10 or len(telefone) > 11:
+        return False
+
+    if telefone == telefone[0] * len(telefone):  # Verifica se todos os números são iguais (ex: 1111111111)
+        return False
+
+    return True
+
+def validar_email(email):
+    padrao = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return re.match(padrao, email) is not None
+    return True
+
+
+
+
